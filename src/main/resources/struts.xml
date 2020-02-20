@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+
+    <package name="/" extends="struts-default">
+
+        <default-action-ref name="accueil"/>
+        <action name="accueil">
+            <result>/WEB-INF/pages/login.jsp</result>
+        </action>
+
+        <action name="login" class="actions.SeConnecter">
+            <result name="success">/WEB-INF/pages/menu.jsp</result>
+            <result name="input">/WEB-INF/pages/login.jsp</result>
+        </action>
+
+        <action name="goToMesParis" class="actions.GoToMesParis">
+            <result>/WEB-INF/pages/mesParis.jsp</result>
+        </action>
+
+        <action name="goToParisOuverts" class="actions.GoToParisOuverts">
+            <result>/WEB-INF/pages/listeParisOuverts.jsp</result>
+        </action>
+
+        <action name="goParier" class="actions.GoParier">
+            <result name="success">/WEB-INF/pages/parier.jsp</result>
+            <result name="input">/WEB-INF/pages/listeParisOuverts.jsp</result>
+        </action>
+
+        <action name="parier" class="actions.Parier">
+            <result name="success">/WEB-INF/pages/confirmationParier.jsp</result>
+            <result name="input">/WEB-INF/pages/parier.jsp</result>
+        </action>
+
+        <action name="goMenu">
+            <result>/WEB-INF/pages/menu.jsp</result>
+        </action>
+    </package>
+
+</struts>
